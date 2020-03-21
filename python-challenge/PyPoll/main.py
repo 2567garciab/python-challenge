@@ -27,13 +27,13 @@ with open(election_data_csv) as csvfile:
 KhanVotes_Percent = (KhanVotes/TotalVotes)*100
 CorreyVotes_Percent = (CorreyVotes/TotalVotes)*100
 LiVotes_Percent = (LiVotes/TotalVotes)*100
-
+OtooleyVotes_Percent = (LiVotes/TotalVotes)*100
 
 Canidates = ["Khan","Correy", "Li", "O'Tooley"]
 Votes = [KhanVotes, CorreyVotes, LiVotes, OtooleyVotes]
 
 Dictionary_of_Canidates_and_Votes = dict(zip(Canidates,Votes))
-Winner = max(Dictionary_of_Canidates_and_Votes, Winner=Dictionary_of_Canidates_and_Votes.get)
+key = max(Dictionary_of_Canidates_and_Votes, key=Dictionary_of_Canidates_and_Votes.get)
 
 print("Election Results")
 print("-----------------------------------")
@@ -44,29 +44,31 @@ print(f"Correy : {CorreyVotes_Percent:.3F} % ({CorreyVotes})")
 print(f"Li : {LiVotes_Percent:.3F} % ({LiVotes})")
 print(f"O'Tooley : {OtooleyVotes_Percent:.3F} % ({OtooleyVotes})")
 print("-----------------------------------")
-print(f"Winner: {Winner}")
+print(f"Winner: {key}")
 print("-----------------------------------")
 
-#Election_File = os.path.join("Election_Results.csv")
+Election_File = os.path.join("Election_Results.csv")
 
-#with open(Election_File, "w") as file:
-    #file.write("Election Results")
-    #file.write("\n")
-    #file.write("-----------------------------------")
-    #file.write("\n")
-    #file.write(f"Total Votes: {TotalVotes}")
-    #file.write("\n")
-    #file.write("-----------------------------------")
-    #file.write("\n")
-    #file.write(f"Khan : {KhanVotes_Percent:.3F} % ({KhanVotes})")
-    #file.write("\n")
-    #file.write(f"Correy : {CorreyVotes_Percent:.3F} % ({CorreyVotes})")  
-    #file.write("\n")
-    #file.write(f"Li : {LiVotes_Percent:.3F} % ({LiVotes})")
-    #file.write("\n")
-    #file.write(f"O'Tooley : {OtooleyVotes_Percent:.3F} % ({OtooleyVotes})")
-    #file.write("\n")
-    #file.write("-----------------------------------")
-    #file.write("\n")
-    #file.write(f"Winner: {winner}")
-    #file.writeprint("-----------------------------------")
+with open(Election_File, "w") as file:
+    file.write("Election Results")
+    file.write("\n")
+    file.write("-----------------------------------")
+    file.write("\n")
+    file.write(f"Total Votes: {TotalVotes}")
+    file.write("\n")
+    file.write("-----------------------------------")
+    file.write("\n")
+    file.write(f"Khan : {KhanVotes_Percent:.3F} % ({KhanVotes})")
+    file.write("\n")
+    file.write(f"Correy : {CorreyVotes_Percent:.3F} % ({CorreyVotes})")  
+    file.write("\n")
+    file.write(f"Li : {LiVotes_Percent:.3F} % ({LiVotes})")
+    file.write("\n")
+    file.write(f"O'Tooley : {OtooleyVotes_Percent:.3F} % ({OtooleyVotes})")
+    file.write("\n")
+    file.write("-----------------------------------")
+    file.write("\n")
+    file.write(f"Winner: {key}")
+    file.write("\n")
+    file.write("-----------------------------------")
+
